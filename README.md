@@ -1,6 +1,11 @@
 # KNK Book
 
-## Chapter 4 - Expresssions
+## Content
+
+- [Chapter 4 Expressions](#chapter-4-expressions)
+- [Chapter 5 Selection Statements](#chapter-5-selection-statements)
+
+## Chapter 4 Expressions
 
 ### Simple Assignment
 
@@ -60,3 +65,76 @@ a = b += c++ - d + --e / -f
 ++i;
 i = 1;
 ```
+
+## Chapter 5 Selection Statements
+
+### Logical Expressions
+
+- Relational Operators(`<`, `>`, `<=`, `>=`) has lower order of operations than Arithmetic operators.
+
+```c
+i + j < k - 1
+// Same as: (i + j) < (k - 1)
+```
+
+- Relational Operators are left associative.
+
+```c
+i < j < k
+// Same as: (i < j) < k
+```
+
+Logical Operators `&&`, `||` always evaluates its left operand first then the right operand. If left operand alone can evaluate whole expression, right operand will not be evaluated. This is called **short circuit**.
+
+### The `if` Statement
+
+- Form of `if` statement
+
+```pseudo
+if ( expression) statement
+```
+
+`if` statement can control two or more statements using **compound Statements**.
+
+```pseudo
+if ( expression) { statements }
+```
+
+### Boolean Values in C99
+
+In C99, Boolean Value can be declared by writing `_Bool`. `_Bool` is unsigned integer type which can be assigned `0` or `1` only.
+
+```c
+_Bool flag;
+
+flag = 5; // flag is 1
+```
+
+`<stdbool.h>` has `bool` macro which makes it easier to work with Boolean Value. `<stdbool.h>` also contains `true`, `false` macros which stand for 1, and 0.
+
+```c
+<stdbool.h>
+
+bool flag; // Same as _Bool flag;
+
+flag = true;
+if (flag) {
+    printf("It's true\n");
+}
+```
+
+### Switch Statement
+
+- Form of `switch` statement
+
+```psuedo
+switch ( expression) {
+    case constant-expression : statements
+    ...
+    case constant-expression : statements
+    default : statements
+}
+```
+
+- Controlling expression: The word switch must be followed by an **integer expression** in parentheses.(integer, Charater)
+- constant expression: it cannot contain variable or function calls.(i.e. `5 + 10` works, but `n + 10` not works.) constant expression must evaluate to an integer.
