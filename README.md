@@ -4,6 +4,7 @@
 
 - [Chapter 4 Expressions](#chapter-4-expressions)
 - [Chapter 5 Selection Statements](#chapter-5-selection-statements)
+- [Chapter 7 Basic Types](#chapter-7-basic-types)
 
 ## Chapter 4 Expressions
 
@@ -138,3 +139,60 @@ switch ( expression) {
 
 - Controlling expression: The word switch must be followed by an **integer expression** in parentheses.(integer, Charater)
 - constant expression: it cannot contain variable or function calls.(i.e. `5 + 10` works, but `n + 10` not works.) constant expression must evaluate to an integer.
+
+## Chapter 7 Basic Types
+
+### Integer Types
+
+- C's integer types come in different syizes. `int` is *usually* 32 bits.(varies from machine)
+- The Range of each integer types is different from one machine to another.
+- C standard does not force C's compiler to set its integer type's range of value.
+
+#### Integer Constants
+
+- Constants - numbers that appear in the text of a program, not numbers that are read, written, or computed.
+- C supports integer constants to be written in decimal, octal, hexadecimal.
+- Numbers are always saved in binary, regardless of integer constants.
+
+```c
+int num;
+
+num = 010 ; // Octal Number, 8 in Decimal Number
+num = 0xff; // Hexadecimal Number, 255 in Decimal Number
+
+printf("%d\n", num);
+```
+
+- Number is treated as `long integer` or `unsigned integer` by C compiler, if it has letter `L` or `U` at the end of integer literal.
+- C99 will use **smallest** type, if no letter exist.
+
+```c
+unsigned int num1;
+long num2;
+unsigned long num3;
+
+num1 = 20U;
+num2 = 46L;
+num3 = 578UL;
+```
+
+#### Reading and Writing Integers
+
+```c
+// 64 bits machine
+#include <limits.h>
+
+int main(int argc, const char * argv[]) {
+    printf("Range of int: %d ~ %d\n", INT_MIN, INT_MAX);
+    printf("Range of long: %ld ~ %ld\n", LONG_MIN, LONG_MAX);
+    printf("Range of long long: %lld ~ %lld\n", LLONG_MIN, LLONG_MAX);
+    printf("Range of unsigned long long: 0 ~ %llu\n", ULLONG_MAX);
+}
+
+// Range of int: -2147483648 ~ 2147483647
+// Range of long: -9223372036854775808 ~ 9223372036854775807
+// Range of long long: -9223372036854775808 ~ 9223372036854775807
+// Range of unsigned long long: 0 ~ 18446744073709551615
+```
+
+### Floating Types
