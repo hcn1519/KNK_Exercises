@@ -196,3 +196,33 @@ int main(int argc, const char * argv[]) {
 ```
 
 ### Floating Types
+
+- Most morden computers follow the specifications in IEEE standard to save Floating-Point numbers.
+
+### Character Types
+
+#### Escape Sequences
+
+- Some special characters can not be written, if they are invisible. Escape sequence is special notation for these characters.
+- C has two kinds of escape sequnces: character escapes, numeric escapes
+- Character escapes represent some characters which used frequently.
+- Numeric escapes can represent all ASCII characters. With single quotes and `\` notation, C can represent any ASCII letter using octal escape sequnece and hexadecimal escape sequence.
+
+```c
+// Character escape sequence
+printf("abc \n def \n");
+
+// Numeric Escape Sequence
+
+// octal
+char smallA = '\141';
+// hexadecimal
+char capitalA = '\x41';
+
+printf("%c\n", smallA);
+printf("%c\n", capitalA);
+
+char c = '\x0a';
+printf("abc \n def \n");
+printf("abc %c def %c\n", c, c);
+```
