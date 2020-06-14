@@ -271,3 +271,32 @@ char c;
 // c is 16
 c = 10000;
 ```
+
+#### Type Casting
+
+- Cast Expression
+
+```expression
+(type-name) expression
+```
+
+```c
+float quotient;
+int divisor
+
+// (type-name) regard as unary operator.
+quotient = (float) dividend / divisor
+quotient = ((float) dividend) / divisor
+```
+
+### Type Definition
+
+- Define Custom types make a program more understandable.
+
+```c
+typedef int Bool;
+typedef float Dollars;
+
+Bool flag;
+Dollars cash_in, cash_out;
+```
