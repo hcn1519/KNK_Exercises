@@ -203,8 +203,8 @@ int main(int argc, const char * argv[]) {
 
 #### Escape Sequences
 
-- Some special characters can not be written, if they are invisible. Escape sequence is special notation for these characters.
-- C has two kinds of escape sequnces: character escapes, numeric escapes
+- Some special characters can not be written, since they are invisible or since they can not be entered from keyboard. Escape sequence is special notation for these characters.
+- C has two kinds of escape sequnces: `character escapes`, `numeric escapes`
 - Character escapes represent some characters which used frequently.
 - Numeric escapes can represent all ASCII characters. With single quotes and `\` notation, C can represent any ASCII letter using octal escape sequnece and hexadecimal escape sequence.
 
@@ -225,4 +225,49 @@ printf("%c\n", capitalA);
 char c = '\x0a';
 printf("abc \n def \n");
 printf("abc %c def %c\n", c, c);
+```
+
+### Type Conversion
+
+- C allows the basic types to be mixed in expressions. Single expression can contain mix of integers, floating-point numbers, and characters.
+
+#### Implicit Conversion
+
+- C compiler handles some conversions on it's own. These are known as `implicit conversions`.
+
+#### The Usual Arithmetic Conversion
+
+- Stratgy of Arithmetic Conversions - Convert operands to the **narrowest** type.
+
+> Roughly speaking, one type is narrower than anther if it requires fewer bytes to store.(i.e. `int` is narrower than `long int`)
+
+- Promotion is the act that convert the oprand of the narrower type to the type of the other operand to match the types of the operands.
+- Integral Promotion - Convert character or short interger to type `int`(or `unsigned int` in some cases)
+
+- **The type of either is a floating type** - promote the operand whose type is narrower.(i.e. One operand's type is `long double` and the other is `float`, convert `float` to `long double`)
+
+```shell
+float -> double -> long double
+```
+
+- **Neither operand type is a floating type** - Perform integral promotion first. Promote the operand whose type is narrower.
+
+```shell
+int -> unsigned int -> long int -> unsigned long int
+```
+
+#### Conversion During Assignment
+
+- Right side of The assignment is converted to the type of the variable on the left side.
+- If right side operand is `floating-point number` and left side operand type is `int`, fractional part of the number is missing.
+- Assigning a value to a variable of a narrower type will give a meaningless result.
+
+```c
+int i;
+// i is 842
+i = 842.97;
+
+char c;
+// c is 16
+c = 10000;
 ```

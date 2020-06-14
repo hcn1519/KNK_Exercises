@@ -32,5 +32,8 @@ int main(int argc, const char * argv[]) {
     printf("%c\n", toupper(letterA));
     printf("%c\n", tolower(letterA));
 
+    char myChar;
+
+    myChar = 10000;
     return 0;
 }
