@@ -7,6 +7,10 @@
 //
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+#include <time.h>
+#include <string.h>
 
 #define SIZE (int) (sizeof(c) / sizeof(c[0]))
 
@@ -48,7 +52,7 @@ void oneDimensionalArray() {
 }
 
 void twoDimensionalArray() {
-    int arr[3][4] = {[0][0] = 10, [0][2] = 45, [2][3] = 24};
+    const int arr[3][4] = {[0][0] = 10, [0][2] = 45, [2][3] = 24};
 
     int row = sizeof(arr) / sizeof(arr[0]);
     int column = sizeof(arr[0]) / sizeof(arr[0][0]);
@@ -59,10 +63,50 @@ void twoDimensionalArray() {
         }
     }
 }
+
+void dealingAHandOfCards(int numberOfCard) {
+    const char suit_code[] = { 'c', 'h', 'd', 's'};
+    const char rank_code[] = { '2', '3', '4', '5', '6', '7', '8', '9','t', 'j', 'q', 'k', 'a' };
+
+    const int number_of_suits = sizeof(suit_code);
+    const int number_of_ranks = sizeof(rank_code);
+
+    bool in_hand[number_of_suits][number_of_ranks] = { false };
+
+    // prevent picking same cards
+    srand((unsigned)time(NULL));
+
+    while(numberOfCard > 0) {
+        int suit = rand() % number_of_suits;
+        int rank = rand() % number_of_ranks;
+
+        if (!in_hand[suit][rank]) {
+            numberOfCard--;
+            in_hand[suit][rank] = true;
+            printf(" %c%c", rank_code[rank], suit_code[suit]);
+        }
+    }
+    printf("\n");
+}
+
+void copyArray() {
+    const char suit_code[] = { 'c', 'h', 'd', 's'};
+    char copied[4];
+
+    memcpy(copied, suit_code, sizeof(suit_code));
+
+    for(int i = 0; i < sizeof(suit_code); i++) {
+        printf(" %c", copied[i]);
+    }
+    printf("\n");
+}
+
 int main(int argc, const char * argv[]) {
 
     oneDimensionalArray();
     printInterest(6, 5);
     twoDimensionalArray();
+    dealingAHandOfCards(5);
+    copyArray();
     return 0;
 }
