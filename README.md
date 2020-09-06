@@ -5,6 +5,8 @@
 - [Chapter 4 Expressions](#chapter-4-expressions)
 - [Chapter 5 Selection Statements](#chapter-5-selection-statements)
 - [Chapter 7 Basic Types](#chapter-7-basic-types)
+- [Chapter 8 Array](#chapter-8-array)
+- [Chapter 9 Function](#chapter-9-function)
 
 ## Chapter 4 Expressions
 
@@ -299,4 +301,52 @@ typedef float Dollars;
 
 Bool flag;
 Dollars cash_in, cash_out;
+```
+
+## Chapter 8 Array
+
+- Copy Array Using `memcpy`
+
+```c
+void copyArray() {
+    const char suit_code[] = { 'c', 'h', 'd', 's'};
+    char copied[4];
+
+    memcpy(copied, suit_code, sizeof(suit_code));
+
+    for(int i = 0; i < sizeof(suit_code); i++) {
+        printf(" %c", copied[i]);
+    }
+    printf("\n");
+}
+```
+
+
+## Chapter 9 Function
+
+### Parameter & Argument
+
+- Paramters appear in function **definitions**; they represents **values** to be supplied when the function is called.
+- Arguments are **expressions** that appear in function **calls**
+
+### Variable Length Array Parameters
+
+```c
+// Function Prototype
+int sum_array(int n, int m, int a[n][m]);
+```
+
+### Program Termination
+
+- The value returned by main is a status code; 0 means success
+
+```c
+#include <stdlib.h>
+
+int main(void) {
+    return 0;
+    return EXIT_SUCCESS;
+    exit(0);
+    exit(EXIT_SUCCESS);
+}
 ```
