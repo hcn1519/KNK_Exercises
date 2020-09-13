@@ -15,6 +15,7 @@ int sum_array(int len, int a[len]);
 int partition_array(int len, int arr[len], int low, int high);
 void print_arr(int len, int arr[len]);
 void testPartition(int len, int arr[len]);
+double median(double x, double y, double z);
 
 void quickSort(int len, int arr[len], int low, int high) {
     if (low >= high) {
@@ -42,6 +43,9 @@ int main(int argc, const char * argv[]) {
 
     quickSort(7, arr, 0, 6);
     print_arr(7, arr);
+
+    double medianNumber = median(20, 5, 7);
+    printf("Median - %f\n", medianNumber);
 
     return EXIT_SUCCESS;
 }
@@ -112,4 +116,26 @@ void testPartition(int n, int arr[n]) {
     if (isSuccess) {
         printf("Success\n");
     }
+}
+
+double median(double x, double y, double z) {
+    bool xIsGreaterThanY = x >= y;
+    bool xIsGreaterThanZ = x >= z;
+    bool yIsGreaterThanZ = y >= z;
+
+    double result;
+    if (xIsGreaterThanY) {
+        if (yIsGreaterThanZ) {
+            result = y;
+        } else {
+            result = z;
+        }
+    } else {
+        if (xIsGreaterThanZ) {
+            result = x;
+        } else {
+            result = z;
+        }
+    }
+    return result;
 }
