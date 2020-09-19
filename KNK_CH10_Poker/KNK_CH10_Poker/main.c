@@ -14,16 +14,14 @@
 #define NUM_SUITS 4
 #define NUM_CARDS 5
 
-int num_in_rank[NUM_RANKS] = { 0 };
-int num_in_suit[NUM_SUITS] = { 0 };
 bool flush = false;
 bool straight = false;
 bool four = false;
 bool three = false;
 int pairs = 0;
 
-void read_cards(void);
-void analyze_hand(void);
+void read_cards(int hand[5][2]);
+void analyze_hand(int hand[5][2]);
 void print_result(void);
 
 /*
@@ -64,14 +62,15 @@ void print_result(void);
  Four of a kind
  */
 int main(int argc, const char * argv[]) {
-    read_cards();
-    analyze_hand();
+    int hand[NUM_CARDS][2] = { 0 };
+
+    read_cards(hand);
+    analyze_hand(hand);
     print_result();
     return 0;
 }
 
-void read_cards() {
-    bool card_exist[NUM_RANKS][NUM_SUITS] = { false };
+void read_cards(int hand[NUM_CARDS][2]) {
 
     int card_read = 0;
     bool bad_card = false;
@@ -118,28 +117,47 @@ void read_cards() {
 
         if (bad_card) {
             printf("Bad Card; Ignored.\n");
-        } else if (card_exist[rank][suit]) {
-            printf("Duplicate card; Ignored.\n");
-        } else {
-            num_in_rank[rank]++;
-            num_in_suit[suit]++;
-            card_exist[rank][suit] = true;
+            continue;
+        }
+        bool isDuplicate = false;
+        for(int i = 0; i < card_read; i++) {
+            if (hand[i][0] == rank && hand[i][1] == suit) {
+                printf("Duplicate card; Ignored.\n");
+                isDuplicate = true;
+                break;
+            }
+        }
+
+        if (bad_card == false && isDuplicate == false) {
+            hand[card_read][0] = rank;
+            hand[card_read][1] = suit;
             card_read++;
         }
     }
+//    debug log
+//    for(int i = 0; i < NUM_CARDS; i++) {
+//        printf("Hand %d %d\n", hand[i][0], hand[i][1]);
+//    }
 }
 
-void analyze_hand() {
+void analyze_hand(int hand[NUM_CARDS][2]) {
 
-    for(int i = 0; i < NUM_SUITS; i++) {
-        if (num_in_suit[i] == NUM_CARDS) {
-            flush = true;
+    int firstSuit = hand[0][1];
+    flush = true;
+    for(int i = 1; i < 5; i++) {
+        if (hand[i][1] != firstSuit) {
+            flush = false;
         }
     }
 
+    int num_in_rank[NUM_RANKS] = { 0 };
+    for(int i = 0; i < NUM_CARDS; i++) {
+        int v = hand[i][0];
+        num_in_rank[v]++;
+    }
     int maxStraight = 0;
     int currentStraight = 0;
-    for(int i=0; i < NUM_RANKS; i++) {
+    for(int i = 0; i < NUM_RANKS; i++) {
         if (num_in_rank[i] != 0) {
             currentStraight++;
         } else {
