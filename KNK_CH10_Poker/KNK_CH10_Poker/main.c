@@ -14,6 +14,7 @@
 #define NUM_SUITS 4
 #define NUM_CARDS 5
 
+bool royalFlush = false;
 bool flush = false;
 bool straight = false;
 bool four = false;
@@ -144,10 +145,43 @@ void analyze_hand(int hand[NUM_CARDS][2]) {
 
     int firstSuit = hand[0][1];
     flush = true;
-    for(int i = 1; i < 5; i++) {
+    for(int i = 1; i < NUM_CARDS; i++) {
         if (hand[i][1] != firstSuit) {
             flush = false;
         }
+    }
+
+    if (flush) {
+        bool royals[5] = { false };
+        for(int i = 0; i < NUM_CARDS; i++) {
+            int rank = hand[i][0];
+            switch (rank) {
+                case 8:
+                    royals[0] = true;
+                    break;
+                case 9:
+                    royals[1] = true;
+                    break;
+                case 10:
+                    royals[2] = true;
+                    break;
+                case 11:
+                    royals[3] = true;
+                    break;
+                case 12:
+                    royals[4] = true;
+                    break;
+                default:
+                    break;
+            }
+        }
+        int royalCount = 0;
+        for(int i = 0; i < NUM_CARDS; i++) {
+            if (royals[i] == true) {
+                royalCount++;
+            }
+        }
+        royalFlush = royalCount == NUM_CARDS ? true : false;
     }
 
     int num_in_rank[NUM_RANKS] = { 0 };
@@ -168,6 +202,10 @@ void analyze_hand(int hand[NUM_CARDS][2]) {
         }
     }
 
+    if (currentStraight > maxStraight) {
+        maxStraight = currentStraight;
+    }
+
     if (maxStraight == NUM_CARDS) {
         straight = true;
     }
@@ -184,7 +222,9 @@ void analyze_hand(int hand[NUM_CARDS][2]) {
 }
 
 void print_result() {
-    if (straight && flush) {
+    if (straight && royalFlush) {
+        printf("Royal Flush");
+    } else if (straight && flush) {
         printf("Straight Flush");
     } else if (four) {
         printf("Four of a kind");
