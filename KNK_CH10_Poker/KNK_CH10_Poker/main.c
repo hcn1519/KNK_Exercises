@@ -16,6 +16,7 @@
 
 bool royalFlush = false;
 bool flush = false;
+bool aceLowStraight = false;
 bool straight = false;
 bool four = false;
 bool three = false;
@@ -210,6 +211,15 @@ void analyze_hand(int hand[NUM_CARDS][2]) {
         straight = true;
     }
 
+    if (num_in_rank[0] == 1
+        && num_in_rank[1] == 1
+        && num_in_rank[2] == 1
+        && num_in_rank[3] == 1
+        && num_in_rank[NUM_RANKS - 1] == 1) {
+        aceLowStraight = true;
+        straight = true;
+    }
+
     for(int i = 0; i < NUM_RANKS; i++) {
         if (num_in_rank[i] == 4) {
             four = true;
@@ -232,6 +242,8 @@ void print_result() {
         printf("Full house");
     } else if (flush) {
         printf("Flush");
+    } else if (aceLowStraight) {
+        printf("Ace Low Straight");
     } else if (straight) {
         printf("Straight");
     } else if (three) {
