@@ -16,6 +16,7 @@ void example4(void);
 void example5(void);
 void example6(void);
 void example7(void);
+void example8(void);
 
 int main(int argc, const char * argv[]) {
 
@@ -23,6 +24,7 @@ int main(int argc, const char * argv[]) {
     example5();
     example6();
     example7();
+    example8();
     return 0;
 }
 
@@ -69,4 +71,12 @@ void example7() {
     split_date(266, 2020, &month, &day);
 
     printf("Month - %d, Day - %d\n", month, day);
+}
+
+void example8() {
+    int sample[] = { 3, 1, 5, 4 };
+
+    int *largest = find_largest(4, sample);
+
+    printf("Largest %d\n", *largest);
 }

@@ -12,6 +12,7 @@
 		7EDC5BB4251F4E630031A625 /* Example5.c in Sources */ = {isa = PBXBuildFile; fileRef = 7EDC5BB3251F4E630031A625 /* Example5.c */; };
 		7EDC5BB8251F75A60031A625 /* Example6.c in Sources */ = {isa = PBXBuildFile; fileRef = 7EDC5BB7251F75A50031A625 /* Example6.c */; };
 		7EDC5BBC251FB47C0031A625 /* Example7.c in Sources */ = {isa = PBXBuildFile; fileRef = 7EDC5BBB251FB47C0031A625 /* Example7.c */; };
+		7EDC5BC0251FB9690031A625 /* Example8.c in Sources */ = {isa = PBXBuildFile; fileRef = 7EDC5BBF251FB9690031A625 /* Example8.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,6 +38,8 @@
 		7EDC5BB7251F75A50031A625 /* Example6.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = Example6.c; sourceTree = "<group>"; };
 		7EDC5BBA251FB47C0031A625 /* Example7.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Example7.h; sourceTree = "<group>"; };
 		7EDC5BBB251FB47C0031A625 /* Example7.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = Example7.c; sourceTree = "<group>"; };
+		7EDC5BBE251FB9690031A625 /* Example8.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Example8.h; sourceTree = "<group>"; };
+		7EDC5BBF251FB9690031A625 /* Example8.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = Example8.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +81,8 @@
 				7EDC5BB7251F75A50031A625 /* Example6.c */,
 				7EDC5BBA251FB47C0031A625 /* Example7.h */,
 				7EDC5BBB251FB47C0031A625 /* Example7.c */,
+				7EDC5BBE251FB9690031A625 /* Example8.h */,
+				7EDC5BBF251FB9690031A625 /* Example8.c */,
 			);
 			path = KNK_CH11_EX;
 			sourceTree = "<group>";
@@ -139,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7EDC5BA7251F4D020031A625 /* main.c in Sources */,
+				7EDC5BC0251FB9690031A625 /* Example8.c in Sources */,
 				7EDC5BBC251FB47C0031A625 /* Example7.c in Sources */,
 				7EDC5BB8251F75A60031A625 /* Example6.c in Sources */,
 				7EDC5BB4251F4E630031A625 /* Example5.c in Sources */,
