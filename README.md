@@ -7,6 +7,7 @@
 - [Chapter 7 Basic Types](#chapter-7-basic-types)
 - [Chapter 8 Array](#chapter-8-array)
 - [Chapter 9 Function](#chapter-9-function)
+- [Chapter 11 Pointers](#chapter-11-pointers)
 
 ## Chapter 4 Expressions
 
@@ -321,7 +322,6 @@ void copyArray() {
 }
 ```
 
-
 ## Chapter 9 Function
 
 ### Parameter & Argument
@@ -349,4 +349,17 @@ int main(void) {
     exit(0);
     exit(EXIT_SUCCESS);
 }
+```
+
+## Chapter 11 Pointers
+
+- Each variable in the program occupies one or more bytes in the memory.
+- The address of the first byte is said to be the address of the variable.
+- To find the address of a variable, we use the `&` operator. To gain access to the object that a pointer points to, we use the `*` operator.
+
+```c
+int value = 3;
+int *pointer = &value; // *pointer is an alias of value.
+
+printf("%d, %d\n", value, *pointer); // 3, 3
 ```

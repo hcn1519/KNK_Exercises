@@ -78,9 +78,11 @@ void max_min(int a[], int n, int *max, int *min) {
     }
 }
 
+// const keyword makes the value immutable, which p points to.
 void testConstPointer(const int *p) {
     printf("Before %d\n", *p);
     int newP = *p;
     newP = 20;
     printf("After %d\n", newP);
 }
+
