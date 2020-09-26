@@ -10,6 +10,7 @@
 		7EDC5BA7251F4D020031A625 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 7EDC5BA6251F4D020031A625 /* main.c */; };
 		7EDC5BB0251F4D320031A625 /* Example4.c in Sources */ = {isa = PBXBuildFile; fileRef = 7EDC5BAF251F4D320031A625 /* Example4.c */; };
 		7EDC5BB4251F4E630031A625 /* Example5.c in Sources */ = {isa = PBXBuildFile; fileRef = 7EDC5BB3251F4E630031A625 /* Example5.c */; };
+		7EDC5BB8251F75A60031A625 /* Example6.c in Sources */ = {isa = PBXBuildFile; fileRef = 7EDC5BB7251F75A50031A625 /* Example6.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +32,8 @@
 		7EDC5BAF251F4D320031A625 /* Example4.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = Example4.c; sourceTree = "<group>"; };
 		7EDC5BB2251F4E630031A625 /* Example5.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Example5.h; sourceTree = "<group>"; };
 		7EDC5BB3251F4E630031A625 /* Example5.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = Example5.c; sourceTree = "<group>"; };
+		7EDC5BB6251F75A50031A625 /* Example6.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Example6.h; sourceTree = "<group>"; };
+		7EDC5BB7251F75A50031A625 /* Example6.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = Example6.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +71,8 @@
 				7EDC5BAF251F4D320031A625 /* Example4.c */,
 				7EDC5BB2251F4E630031A625 /* Example5.h */,
 				7EDC5BB3251F4E630031A625 /* Example5.c */,
+				7EDC5BB6251F75A50031A625 /* Example6.h */,
+				7EDC5BB7251F75A50031A625 /* Example6.c */,
 			);
 			path = KNK_CH11_EX;
 			sourceTree = "<group>";
@@ -129,6 +134,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7EDC5BA7251F4D020031A625 /* main.c in Sources */,
+				7EDC5BB8251F75A60031A625 /* Example6.c in Sources */,
 				7EDC5BB4251F4E630031A625 /* Example5.c in Sources */,
 				7EDC5BB0251F4D320031A625 /* Example4.c in Sources */,
 			);
