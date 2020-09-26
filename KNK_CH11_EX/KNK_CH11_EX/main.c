@@ -9,16 +9,20 @@
 #include "Example4.h"
 #include "Example5.h"
 #include "Example6.h"
+#include "Example7.h"
+#include "Example8.h"
 
 void example4(void);
 void example5(void);
 void example6(void);
+void example7(void);
 
 int main(int argc, const char * argv[]) {
 
     example4();
     example5();
     example6();
+    example7();
     return 0;
 }
 
@@ -58,4 +62,11 @@ void example6() {
 
     find_two_largest(sample4, 8, &largest, &second_largest);
     printf("Largest - %d, Second Largest - %d\n", largest, second_largest);
+}
+
+void example7() {
+    int month, day;
+    split_date(266, 2020, &month, &day);
+
+    printf("Month - %d, Day - %d\n", month, day);
 }
