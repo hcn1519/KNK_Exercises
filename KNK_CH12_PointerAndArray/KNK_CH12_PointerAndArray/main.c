@@ -15,6 +15,7 @@ void arrayProcessingUsingPointer(void);
 void combineAsteriskPlus(void);
 void reverseUsingPointer(void);
 void pointerAsAArrayName(void);
+int findLargest(int a[], int n);
 void pointer2DArray(void);
 void access2DArrayRows(int row);
 
@@ -23,6 +24,11 @@ int main(int argc, const char * argv[]) {
     combineAsteriskPlus();
     reverseUsingPointer();
     pointerAsAArrayName();
+
+    int a[N] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+    int largest = findLargest(a, 10);
+    printf("Largest: %d\n", largest);
+
     pointer2DArray();
     access2DArrayRows(0);
     access2DArrayRows(1);
@@ -38,6 +44,9 @@ void arrayProcessingUsingPointer() {
         sum += *p;
     }
     printf("Sum %d\n", sum);
+    int *k = &a[0];
+    int tmp = *(k + 10); // Undefined Behavior
+    printf("%d\n", tmp);
 }
 
 void combineAsteriskPlus() {
@@ -72,6 +81,18 @@ void pointerAsAArrayName() {
         sum += p[i];
     }
     printf("Sum %d\n", sum);
+}
+
+int findLargest(int a[], int n) {
+    int i, max;
+
+    max = a[0];
+    for(int i =0; i < n; i++) {
+        if (a[i] > max) {
+            max = a[i];
+        }
+    }
+    return max;
 }
 
 void pointer2DArray() {

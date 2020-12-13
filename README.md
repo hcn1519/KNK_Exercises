@@ -8,6 +8,7 @@
 - [Chapter 8 Array](#chapter-8-array)
 - [Chapter 9 Function](#chapter-9-function)
 - [Chapter 11 Pointers](#chapter-11-pointers)
+- [Chapter 12 Pointers and Arrays](#chapter-12-pointers-and-arrays)
 
 ## Chapter 4 Expressions
 
@@ -387,3 +388,42 @@ double *q = &d;
 decompose(3.141592, &i, &d);
 decompose(3.141592, p, q);
 ```
+
+## Chapter 12 Pointers and Arrays
+
+### Pointer Arithmetic
+
+- If `p` points to array element `a[i]`, then `p + j` points to `a[i + j]`.
+
+```c
+int a[5] = {0, 1, 2, 3, 4};
+int *p;
+
+p = &a[0]; // 0
+int lastNum = *(p + 5); // 4
+int undefined = *(p + 6); // Undefined Behavior
+```
+
+### Using an Array Name as a Pointer
+
+- The name of an array can be used as a pointer to the first elemnt in the array.
+
+```c
+int a[5] = {0, 1, 2, 3, 4};
+int *p, lastNum;
+
+p = a; // *p becomes 0
+lastNum = a + 5; // 4, a[4]
+```
+
+- C also allows us to subscript a pointer as though it were an array name.
+
+```c
+int a[5] = {0, 1, 2, 3, 4};
+int *p;
+
+p = a;
+printf("%d\n", p[2]); // 2
+```
+
+### Pointers and Multidimentional Arrays
