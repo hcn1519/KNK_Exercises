@@ -353,13 +353,37 @@ int main(void) {
 
 ## Chapter 11 Pointers
 
+### Pointer Variables
+
 - Each variable in the program occupies one or more bytes in the memory.
 - The address of the first byte is said to be the address of the variable.
-- To find the address of a variable, we use the `&` operator. To gain access to the object that a pointer points to, we use the `*` operator.
+- Addresses are represented by numbers, their range of values may differ from that of integers, so we can't necessarily store them in ordinary integer variables. We can store them in special `pointer varibles`.
+- If we store the address of a variable `i` in the pointer variable `p`, we say that `p` points to `i`.
+- A pointer is nothing more than an address, and a pointer variable is just a variable that can store an address.
+
+### The Address and Indirection Operators
+
+- To find the address of a variable, we use the `&` operator. To gain access to the object that a pointer points to, we use the `*` (indirection) operator.
 
 ```c
 int value = 3;
 int *pointer = &value; // *pointer is an alias of value.
 
 printf("%d, %d\n", value, *pointer); // 3, 3
+```
+
+### Pointer as an Arguments
+
+```c
+void decompose(double x, long *int_part, double *frac_part) {
+    *int_part = (long)x;
+    *frac_part = x - *int_part;
+}
+
+long i;
+double d;
+long *p = &i;
+double *q = &d;
+decompose(3.141592, &i, &d);
+decompose(3.141592, p, q);
 ```

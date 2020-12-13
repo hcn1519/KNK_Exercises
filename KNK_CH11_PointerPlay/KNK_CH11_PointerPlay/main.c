@@ -14,21 +14,24 @@ void scanfEx(void);
 void testMaxMin(void);
 void max_min(int a[], int n, int *max, int *min);
 void testConstPointer(const int *p);
+void testPointerAssignment(void);
 
 int main(int argc, const char * argv[]) {
 
     long i;
     double d;
-
+    long *p = &i;
+    double *q = &d;
     decompose(3.141592, &i, &d);
-    printf("i: %ld, d: %f\n", i, d);
-
-    printf("pointer i: %p\n", &i);
+    decompose(3.141592, p, q);
+    printf("i: %ld d: %f, *p: %ld, *q: %f\n", i, d, *p, *q);
 
     scanfEx();
     testMaxMin();
-    int p = 30;
-    testConstPointer(&p);
+    int constP = 30;
+    testConstPointer(&constP);
+
+    testPointerAssignment();
     return 0;
 }
 
@@ -36,14 +39,14 @@ void scanfEx() {
     char str [80];
     int i;
 
-    printf ("Enter your family name: ");
-    scanf ("%79s", str);
-    printf ("Enter your age: ");
-    scanf ("%d", &i);
-    printf ("Mr. %s , %d years old.\n", str, i);
-    printf ("Enter a hexadecimal number: ");
-    scanf ("%x", &i);
-    printf ("You have entered %#x (%d).\n", i, i);
+    printf("Enter your family name: ");
+    scanf("%79s", str);
+    printf("Enter your age: ");
+    scanf("%d", &i);
+    printf("Mr. %s , %d years old.\n", str, i);
+    printf("Enter a hexadecimal number: ");
+    scanf("%x", &i);
+    printf("You have entered %#x (%d).\n", i, i);
 }
 
 void decompose(double x, long *int_part, double *frac_part) {
@@ -86,3 +89,17 @@ void testConstPointer(const int *p) {
     printf("After %d\n", newP);
 }
 
+void testPointerAssignment() {
+    int i, j, *p, *q;
+
+    i = 1;
+    j = 2;
+    p = &i;
+    q = &j;
+
+    printf("i: %d j %d, *p: %d, *q: %d\n", i, j, *p, *q);
+
+    *q = *p; // j becomes 1, *q becomes 1
+
+    printf("i: %d j %d, *p: %d, *q: %d\n", i, j, *p, *q);
+}
