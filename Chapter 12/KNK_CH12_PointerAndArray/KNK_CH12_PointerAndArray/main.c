@@ -18,6 +18,8 @@ void pointerAsAArrayName(void);
 int findLargest(int a[], int n);
 void pointer2DArray(void);
 void access2DArrayRows(int row);
+void pass2DArrayRows(int a[], int n);
+void accessColumn(void);
 
 int main(int argc, const char * argv[]) {
     arrayProcessingUsingPointer();
@@ -33,6 +35,12 @@ int main(int argc, const char * argv[]) {
     access2DArrayRows(0);
     access2DArrayRows(1);
     access2DArrayRows(2);
+
+    int sample2D[NUM_ROW][NUM_COL] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
+    pass2DArrayRows(sample2D[0], 4);
+    pass2DArrayRows(sample2D[1], 4);
+    pass2DArrayRows(sample2D[2], 4);
+    accessColumn();
     return 0;
 }
 
@@ -84,7 +92,7 @@ void pointerAsAArrayName() {
 }
 
 int findLargest(int a[], int n) {
-    int i, max;
+    int max;
 
     max = a[0];
     for(int i =0; i < n; i++) {
@@ -118,6 +126,24 @@ void access2DArrayRows(int row) {
 
     for(p = a[row]; p < a[row] + NUM_COL; p++) {
         printf("%d ", *p);
+    }
+    printf("\n");
+}
+
+void pass2DArrayRows(int a[], int n) {
+    for(int i = 0; i < n; i++) {
+        printf("%d ", a[i]);
+    }
+    printf("\n");
+}
+
+void accessColumn() {
+    int a[NUM_ROW][NUM_COL] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
+    int (*p)[NUM_COL], i = 0;
+
+    for(p = &a[0]; p < &a[NUM_ROW]; p++) {
+        printf("%d ", (*p)[i]);
+        i++;
     }
     printf("\n");
 }
