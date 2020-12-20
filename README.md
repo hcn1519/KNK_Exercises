@@ -435,3 +435,67 @@ printf("%d\n", p[2]); // 2
 ```
 
 ### Pointers and Multidimentional Arrays
+
+#### Processing the Rows of a Multidimentional Arrays
+
+- Any 2D array `a`, the expression `a[i]` is a pointer to the first elemnt in row `i`.
+- The Expression `a[i]` is equivalent to `*(a + i)`. Thus, `a[i][0]` is same as `*(a[i] + 0)`.
+
+```c
+// a is 2D Array
+a[i] == *(a + i) // true
+a[i][j] == *(a + i)[j] // true
+*(a + i)[j] == *((a + i) + j) // true
+```
+
+```c
+#define NUM_ROW 3
+#define NUM_COL 4
+
+int a[NUM_ROW][NUM_COL];
+int *p, i = 0;
+int callTime = 0;
+
+for(p = a[i]; p < a[i] + NUM_COL; p++) {
+    *p = 0;
+    callTime++;
+}
+printf("CallTime - %d\n", callTime); // CallTime - 4
+```
+
+#### Processing the Columns of a Multidimentional Arrays
+
+```c
+#define NUM_ROW 3
+#define NUM_COL 4
+
+int a[NUM_ROW][NUM_COL] = { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 } };
+int (*ptr)[NUM_COL];
+
+// Column Based Iteration
+for(int i = 0; i < NUM_COL; i++) {
+    for(ptr = &a[0]; ptr < &a[0] + NUM_ROW; ptr++) {
+        printf("%d ", *((*ptr) + i));
+    }
+    printf("\n");
+}
+
+// 1 5 9 
+// 2 6 10 
+// 3 7 11 
+// 4 8 12 
+```
+
+- `ptr` to be a **pointer to an array** of length `NUM_COL` whose elements are integers.
+- `a` is not a pointer to `a[0][0]`. it's a pointer to `a[0]`. When used as pointer, `a` has type `int (*)[NUM_COLS]`.
+
+```c
+// Both Valid
+for(p = &a[0]; p < &a[NUM_ROW]; p++) {
+    (*p)[i] = 0;
+}
+for(p = a; p < a + NUM_ROW; p++) {
+    (*p)[i] = 0;
+}
+
+```

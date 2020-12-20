@@ -17,30 +17,38 @@ void reverseUsingPointer(void);
 void pointerAsAArrayName(void);
 int findLargest(int a[], int n);
 void pointer2DArray(void);
+void pointer2DArray2(void);
 void access2DArrayRows(int row);
 void pass2DArrayRows(int a[], int n);
 void accessColumn(void);
+void pointerToMultipleElements(void);
+void accessColumnWithPointer(void);
+void testPointerAndArraySubscrption(void);
 
 int main(int argc, const char * argv[]) {
-    arrayProcessingUsingPointer();
-    combineAsteriskPlus();
-    reverseUsingPointer();
-    pointerAsAArrayName();
-
-    int a[N] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-    int largest = findLargest(a, 10);
-    printf("Largest: %d\n", largest);
-
-    pointer2DArray();
-    access2DArrayRows(0);
-    access2DArrayRows(1);
-    access2DArrayRows(2);
-
-    int sample2D[NUM_ROW][NUM_COL] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
-    pass2DArrayRows(sample2D[0], 4);
-    pass2DArrayRows(sample2D[1], 4);
-    pass2DArrayRows(sample2D[2], 4);
-    accessColumn();
+//    arrayProcessingUsingPointer();
+//    combineAsteriskPlus();
+//    reverseUsingPointer();
+//    pointerAsAArrayName();
+//
+//    int a[N] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+//    int largest = findLargest(a, 10);
+//    printf("Largest: %d\n", largest);
+//
+//    pointer2DArray();
+//    pointer2DArray2();
+//    access2DArrayRows(0);
+//    access2DArrayRows(1);
+//    access2DArrayRows(2);
+//
+//    int sample2D[NUM_ROW][NUM_COL] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
+//    pass2DArrayRows(sample2D[0], 4);
+//    pass2DArrayRows(sample2D[1], 4);
+//    pass2DArrayRows(sample2D[2], 4);
+//    accessColumn();
+//    pointerToMultipleElements();
+    accessColumnWithPointer();
+    testPointerAndArraySubscrption();
     return 0;
 }
 
@@ -120,6 +128,29 @@ void pointer2DArray() {
     printf("\n");
 }
 
+void pointer2DArray2() {
+    printf("pointer2DArray2\n");
+
+    int a[NUM_ROW][NUM_COL];
+    int *p, i = 0;
+
+    int callTime = 0;
+
+    for(p = a[i]; p < a[i] + NUM_COL; p++) {
+        *p = 0;
+        callTime++;
+    }
+    printf("CallTime - %d\n", callTime);
+
+    for(int i = 0; i < NUM_ROW; i++) {
+        for(int j = 0; j < NUM_COL; j++) {
+            printf("%d ", a[i][j]);
+        }
+        printf("\n");
+    }
+    printf("\n");
+}
+
 void access2DArrayRows(int row) {
     int a[NUM_ROW][NUM_COL] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
     int *p;
@@ -138,12 +169,78 @@ void pass2DArrayRows(int a[], int n) {
 }
 
 void accessColumn() {
-    int a[NUM_ROW][NUM_COL] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
-    int (*p)[NUM_COL], i = 0;
+    int a[NUM_ROW][NUM_COL] = { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 } };
+    int (*p)[NUM_COL], k = 0;
+
+    for(int x = 0; x < NUM_ROW; x++) {
+        for(int y = 0; y < NUM_COL; y++) {
+            printf("%d ", a[x][y]);
+        }
+        printf("\n");
+    }
 
     for(p = &a[0]; p < &a[NUM_ROW]; p++) {
-        printf("%d ", (*p)[i]);
-        i++;
+
+        for(int i = 0; i < NUM_COL; i++) {
+            printf("%d ", *(*(p + k) + i));
+        }
+        k++;
+        printf("\n");
     }
     printf("\n");
+}
+
+void pointerToMultipleElements() {
+    int arr[] = { 1, 2, 3, 4, 5};
+    int *p = arr;
+    int (*ptr)[5] = &arr;
+
+    printf("p = %p, ptr = %p\n", p, ptr); // Value of p and ptr are Same.
+    printf("p = %d, ptr = %p\n", *p, *ptr);
+    printf("sizeof(p) = %lu, sizeof(*p) = %lu\n", sizeof(p), sizeof(*p));
+    printf("sizeof(ptr) = %lu, sizeof(*ptr) = %lu\n", sizeof(ptr), sizeof(*ptr));
+}
+
+void accessColumnWithPointer() {
+    int a[NUM_ROW][NUM_COL] = { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 } };
+    int (*ptr)[NUM_COL];
+
+    // Column Based Iteration
+
+    // Using Pointer
+    for(int i = 0; i < NUM_COL; i++) {
+
+        for(ptr = &a[0]; ptr < &a[0] + NUM_ROW; ptr++) {
+            printf("%d ", *((*ptr) + i));
+        }
+        printf("\n");
+    }
+
+    // Using Subscrption
+    for(int i = 0; i < NUM_COL; i++) {
+        for(int j = 0; j < NUM_ROW; j++) {
+            printf("%d ", a[j][i]);
+        }
+        printf("\n");
+    }
+
+
+}
+
+void testPointerAndArraySubscrption() {
+    int a[NUM_ROW][NUM_COL] = { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 } };
+    int i = 0;
+    int j = 2;
+
+    if (a[i] == *(a + i)) {
+        printf("true 1, a[i] = %p\n", a[i]);
+    }
+    if (a[i][j] == (*(a + i))[j]) {
+        printf("true 2, a[%d][%d] = %d\n", i, j, a[i][j]);
+    }
+    if ((*(a + i))[j] == *(*(a + i) + j)) {
+        printf("true 3, a[%d][%d] = %d\n", i, j, a[i][j]);
+    }
+
+    printf("%d %d", a[i][j], (*(a + i))[j]);
 }
