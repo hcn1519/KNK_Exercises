@@ -101,6 +101,40 @@ void copyArray() {
     printf("\n");
 }
 
+void threeDimentionalArray() {
+
+    int a[3][4][5] = {
+        {
+            { 1, 2, 3, 4, 49 },
+            { 5, 6, 7, 8, 50 },
+            { 9, 10, 11, 12, 51 },
+            { 13, 14, 15, 16, 52 },
+        },
+        {
+            { 17, 18, 19, 20, 53 },
+            { 21, 22, 23, 24, 54 },
+            { 25, 26, 27, 28, 55 },
+            { 29, 30, 31, 32, 56 },
+        },
+        {
+            { 33, 34, 35, 36, 57 },
+            { 37, 38, 39, 40, 58 },
+            { 41, 42, 43, 44, 59 },
+            { 45, 46, 47, 48, 60 },
+        }
+
+    };
+
+    for(int x = 0; x < 3; x++) {
+        for(int y = 0; y < 4; y++) {
+            for(int z = 0; z < 5; z++) {
+                printf("%d ", a[x][y][z]);
+            }
+            printf("\n");
+        }
+        printf("\n");
+    }
+}
 int main(int argc, const char * argv[]) {
 
     oneDimensionalArray();
@@ -108,5 +142,6 @@ int main(int argc, const char * argv[]) {
     twoDimensionalArray();
     dealingAHandOfCards(5);
     copyArray();
+    threeDimentionalArray();
     return 0;
 }

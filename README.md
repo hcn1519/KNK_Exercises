@@ -307,6 +307,14 @@ Dollars cash_in, cash_out;
 
 ## Chapter 8 Array
 
+### One Dimentional Array
+
+- To access a particular element of an array, we write the array name followed by an integer value in square brackets(this is referred to as **subscripting** or **indexing** the array).
+
+### Multidimentional Arrays
+
+- To access the element of `m` in row `i`, we must write `m[i][j]`. The expression `m[i]` designates row `i` of `m`, and `m[i][j]` then selects element `j` in this row.
+- Although we visualize two-dimentional arrays as tables, that's not the way they're actually stored in memory. C stores arrays in **row-major order** with row 0 first.
 - Copy Array Using `memcpy`
 
 ```c
