@@ -23,7 +23,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8F7A47A72598898F00734011 /* KNK_CH12_No1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = KNK_CH12_No1; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F7A47A72598898F00734011 /* KNK_CH12_Projects */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = KNK_CH12_Projects; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F7A47AA2598898F00734011 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -41,7 +41,7 @@
 		8F7A479E2598898F00734011 = {
 			isa = PBXGroup;
 			children = (
-				8F7A47A92598898F00734011 /* KNK_CH12_No1 */,
+				8F7A47A92598898F00734011 /* KNK_CH12_Projects */,
 				8F7A47A82598898F00734011 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,25 +49,25 @@
 		8F7A47A82598898F00734011 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8F7A47A72598898F00734011 /* KNK_CH12_No1 */,
+				8F7A47A72598898F00734011 /* KNK_CH12_Projects */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8F7A47A92598898F00734011 /* KNK_CH12_No1 */ = {
+		8F7A47A92598898F00734011 /* KNK_CH12_Projects */ = {
 			isa = PBXGroup;
 			children = (
 				8F7A47AA2598898F00734011 /* main.c */,
 			);
-			path = KNK_CH12_No1;
+			path = KNK_CH12_Projects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8F7A47A62598898F00734011 /* KNK_CH12_No1 */ = {
+		8F7A47A62598898F00734011 /* KNK_CH12_Projects */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8F7A47AE2598898F00734011 /* Build configuration list for PBXNativeTarget "KNK_CH12_No1" */;
+			buildConfigurationList = 8F7A47AE2598898F00734011 /* Build configuration list for PBXNativeTarget "KNK_CH12_Projects" */;
 			buildPhases = (
 				8F7A47A32598898F00734011 /* Sources */,
 				8F7A47A42598898F00734011 /* Frameworks */,
@@ -77,9 +77,9 @@
 			);
 			dependencies = (
 			);
-			name = KNK_CH12_No1;
+			name = KNK_CH12_Projects;
 			productName = KNK_CH12_No1;
-			productReference = 8F7A47A72598898F00734011 /* KNK_CH12_No1 */;
+			productReference = 8F7A47A72598898F00734011 /* KNK_CH12_Projects */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -95,7 +95,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8F7A47A22598898F00734011 /* Build configuration list for PBXProject "KNK_CH12_No1" */;
+			buildConfigurationList = 8F7A47A22598898F00734011 /* Build configuration list for PBXProject "KNK_CH12_Projects" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -108,7 +108,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8F7A47A62598898F00734011 /* KNK_CH12_No1 */,
+				8F7A47A62598898F00734011 /* KNK_CH12_Projects */,
 			);
 		};
 /* End PBXProject section */
@@ -259,7 +259,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8F7A47A22598898F00734011 /* Build configuration list for PBXProject "KNK_CH12_No1" */ = {
+		8F7A47A22598898F00734011 /* Build configuration list for PBXProject "KNK_CH12_Projects" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8F7A47AC2598898F00734011 /* Debug */,
@@ -268,7 +268,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8F7A47AE2598898F00734011 /* Build configuration list for PBXNativeTarget "KNK_CH12_No1" */ = {
+		8F7A47AE2598898F00734011 /* Build configuration list for PBXNativeTarget "KNK_CH12_Projects" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8F7A47AF2598898F00734011 /* Debug */,
