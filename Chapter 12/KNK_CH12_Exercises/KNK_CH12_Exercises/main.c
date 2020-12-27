@@ -74,6 +74,73 @@ bool search(const int a[], int n, int key) {
     return false;
 }
 
+void store_zeros(int a[], int n) {
+    printf("validateExercises8\n");
+
+    printf("Before\n");
+    for(int i = 0; i < n; i++) {
+        printf("%d ", a[i]);
+    }
+    printf("\n");
+
+    for(int *ptr = a; ptr < a + n; ptr++) {
+        *ptr = 0;
+    }
+
+    printf("After\n");
+    for(int i = 0; i < n; i++) {
+        printf("%d ", a[i]);
+    }
+    printf("\n");
+}
+
+double inner_product(const double *a, const double *b, int n) {
+    printf("validateExercises9\n");
+
+    double sum = 0;
+    double *ptrA = a;
+    double *ptrB = b;
+
+    while(ptrA < a + n && ptrB < b + n) {
+        sum += *ptrA;
+        sum += *ptrB;
+        ptrA++;
+        ptrB++;
+    }
+    return sum;
+}
+
+void find_two_largest(const int *a, int n, int *largest, int *second_largest) {
+    printf("validateExercises12\n");
+    int *ptr = a;
+    if (n < 2) {
+        *largest = *ptr;
+        *second_largest = *(ptr + 1);
+        return;
+    }
+
+    if (*ptr > *ptr + 1) {
+        *largest = *ptr;
+        *second_largest = *(ptr + 1);
+    } else {
+        *largest = *(ptr + 1);
+        *second_largest = *ptr;
+    }
+
+    for(ptr = a + 2; ptr < a + n; ptr++) {
+
+        bool isLargerThanLargest = *ptr > *largest;
+        bool isLargerThanSecondLargest = *ptr > *second_largest;
+
+        if (isLargerThanLargest) {
+            *second_largest = *largest;
+            *largest = *ptr;
+        } else if (isLargerThanSecondLargest) {
+            *second_largest = *ptr;
+        }
+    }
+}
+
 int main(int argc, const char * argv[]) {
     validateExercises1();
     validateExercises2();
@@ -88,5 +155,20 @@ int main(int argc, const char * argv[]) {
 
     printf("Expectation 1 Result %d\n", shouldTrue);
     printf("Expectation 0 Result %d\n", sholudFalse);
+
+    store_zeros(a, 8);
+
+    double doubleA[] = { 5, 15, 34, 54, 14, 2, 52, 72};
+    double result9 = inner_product(doubleA, doubleA, 8);
+    printf("%lf\n", result9);
+
+    int newA[] = { 5, 15, 34, 54, 14, 2, 52, 72};
+    int largest = 0;
+    int second_largset = 0;
+
+    find_two_largest(newA, 8, &largest, &second_largset);
+
+    printf("L: %d SL: %d\n", largest, second_largset);
+
     return 0;
 }
