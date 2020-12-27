@@ -8,6 +8,9 @@
 #include <stdio.h>
 #include <stdbool.h>
 
+#define NUM_ROW 3
+#define NUM_COL 4
+
 void validateExercises1() {
     printf("validateExercises1\n");
     int a[] = { 5, 15, 34, 54, 14, 2, 52, 72};
@@ -141,6 +144,17 @@ void find_two_largest(const int *a, int n, int *largest, int *second_largest) {
     }
 }
 
+int sum_two_dimentional_array(int n, int LEN, const int a[n][LEN]) {
+    printf("validateExercises17\n");
+
+    int sum = 0;
+    for(int *ptr = *a; ptr < *a + (n * LEN); ptr++) {
+        sum += *ptr;
+    }
+
+    return sum;
+}
+
 int main(int argc, const char * argv[]) {
     validateExercises1();
     validateExercises2();
@@ -169,6 +183,11 @@ int main(int argc, const char * argv[]) {
     find_two_largest(newA, 8, &largest, &second_largset);
 
     printf("L: %d SL: %d\n", largest, second_largset);
+
+    int twoDArr[NUM_ROW][NUM_COL] = { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 } };
+    int result17 = sum_two_dimentional_array(NUM_ROW, NUM_COL, twoDArr);
+
+    printf("%d\n", result17);
 
     return 0;
 }
