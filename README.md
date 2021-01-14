@@ -9,6 +9,7 @@
 - [Chapter 9 Function](#chapter-9-function)
 - [Chapter 11 Pointers](#chapter-11-pointers)
 - [Chapter 12 Pointers and Arrays](#chapter-12-pointers-and-arrays)
+- [Chapter 13 Strings](#chapter-13-strings)
 
 ## Chapter 4 Expressions
 
@@ -497,5 +498,27 @@ for(p = &a[0]; p < &a[NUM_ROW]; p++) {
 for(p = a; p < a + NUM_ROW; p++) {
     (*p)[i] = 0;
 }
+```
 
+## Chapter 13 Strings
+
+- A *string literal* is a sequence of characters enclosed within double quotes.
+- C treats string literals as character arrays. Character array for string literals contains one extra character(`null character`) to mark the end of the string.
+- The string literal `"a"` is represented by `a pointer` to a memory location that contains the character `a`. The character constant `'a'` is represented by an `integer`.
+- 
+
+```c
+// Initializeing a String Variable
+char date1[8] = "June 14";
+
+// Operations on String literals
+char *p = "abc"; // p points to 'a'
+char ch = "abc"[1]; // ch becomes 'b'
+```
+
+- Character Arrays versus Character Pointers
+
+```c
+char date[] = "June 14";
+char *date = "June 14";
 ```
