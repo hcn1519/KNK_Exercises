@@ -516,9 +516,38 @@ char *p = "abc"; // p points to 'a'
 char ch = "abc"[1]; // ch becomes 'b'
 ```
 
-- Character Arrays versus Character Pointers
+- Character Arrays and Character Pointers are not interchangable.
+- If we want to modify element of string, we need to use array of characters instead of using pointer variable.
 
 ```c
-char date[] = "June 14";
-char *date = "June 14";
+char date1[] = "June 14";
+char *date2 = "June 14";
+
+date1[0] = 'P'; // fine
+date2[0] = 'K'; // runtime crash
+```
+
+### Reading and Writing Strings
+
+- Writing Strings Using `printf` and `puts`
+
+```c
+char date1[] = "June 14";
+printf("%s\n", date1); // June 14
+puts(date1); // June 14
+printf("%.4s\n", date1); // June
+```
+
+- Reading Strings Using `scanf` and `gets`
+- `scanf` stops reading characters when it encounters `new-line character`, `white space`, and `tab`.
+- `gets` stops reading characters when it encounters `new-line character`.
+
+```c
+char str[80+1];
+// Input: To C, or not to c
+scanf("%s", str); // str = To
+gets(str); // str = To C, or not to c
+
+const int bufferSize = (sizeof(str) / sizeof(str[0]));
+fgets(str, bufferSize, stdin); // str = To C, or not to c
 ```
